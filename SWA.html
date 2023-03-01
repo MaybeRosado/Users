@@ -20,9 +20,10 @@
         <input type="submit" id="addBtn" value="Submit">
 
         <p>Search a user by his username!</p>
-        <input type="submit" id="searchbtn" value="Search">
+        <p id="searchList"></p>
+        <input type="submit" id="searchBtn" value="Search">
         <p id="announce"> </p>
-        <table hidden>
+        <table>
             <thead>
                 <tr>
 
@@ -33,7 +34,7 @@
                     <th>Email</th>
                 </tr>
             </thead>
-            <tbody id="tbl">
+            <tbody id="tbl" class="tbl">
 
             </tbody>
         </table>
@@ -43,8 +44,9 @@
     <h2>Posts</h2>
 <form action="">
     <div id="postsInputs">
-        <input type="text" placeholder="User Id">
-        <input type="submit" value="Search">
+        <input type="text" placeholder="User Id" id="searchPost">
+        <input type="submit" value="Search" id="postBtn">
+        <p id="listPost"></p>
         <h3>Make a post!</h3>
         <input type="text" placeholder="What are you thinking?">
         <input type="submit" value="Post!">
@@ -60,4 +62,5 @@
     
 </body>
 <script src="users.js" type="module"></script>
+<script src="posts.js" type="module"></script>
 </html>

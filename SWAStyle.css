@@ -20,10 +20,41 @@ input[type=submit]{
 
 h1{
     color: rgb(39, 77, 126);
+    
 }
 
 p{
     font-size: large;
     
 }
+
+.tbl{
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    font-family: sans-serif;
+  }
+
+  th{
+    background-color: #aa0404;
+
+  }
+
+  .h3Post{
+    border-style: solid;
+    border-color: #aa0404;
+    border-radius: 4px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+  }
+
+  .postsBody{
+    font-family: sans-serif;
+
+  }
 

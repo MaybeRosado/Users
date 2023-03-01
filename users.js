@@ -1,7 +1,7 @@
 import { users } from "./data.js";
 class Users{
     constructor(){
-        this.data = [users];
+        this.data = users;
     }
 
     addUser(newUser){
@@ -17,7 +17,7 @@ class Users{
     }
 
     search(username){
-        return this.datos.find((dato) => dato.username === username);
+        return this.data.find((dato) => dato.username === username);
         
 
     }
@@ -27,16 +27,22 @@ class Users{
 
 let app = new Users();
 
-    let name = document.getElementById("name").value;
-    let website = document.getElementById("website").value;
-    let age = document.getElementById("age").value;
-    let username = document.getElementById("username").value;
-    let email = document.getElementById("email").value;
+    let nameInput = document.getElementById("name");
+    let websiteInput = document.getElementById("website");
+    let ageInput = document.getElementById("age");
+    let usernameInput = document.getElementById("username");
+    let emailInput = document.getElementById("email");
 
 
 const add = document.getElementById("addBtn")
 add.addEventListener("click", function(e){
     e.preventDefault()
+    let name = nameInput.value;
+    let website = websiteInput.value;
+    let age = ageInput.value;
+    let username = usernameInput.value;
+    let email = emailInput.value;
+    
     const userObject = {
         name,
         website,
@@ -45,24 +51,29 @@ add.addEventListener("click", function(e){
         email
     }
 
-    //console.log(userObject)
+    console.log(userObject)
     app.addUser(userObject);
-    //console.log(app.list())
+    console.log(app.list())
     document.getElementById("announce").innerHTML = "<p>A new user has been signed up</p>";
 
 })
 
-const list = document.getElementById("addBtn")
-list.addEventListener("click",function(e){
+
+add.addEventListener("click",function(e){
     e.preventDefault()
-    let table = `
-        <td>${name}</td>
-        <td>${username}</td>
-        <td>${age}</td>
-        <td>${website}</td>
-        <td>${email}</td>
+    const table = document.getElementById("tbl");
+    let usuarios = app.list()
+
+    table.innerHTML = "";
+        usuarios.forEach(usuario =>{
+            table.innerHTML += `
+        <td>${usuario.name}</td>
+        <td>${usuario.username}</td>
+        <td>${usuario.age}</td>
+        <td>${usuario.website}</td>
+        <td>${usuario.email}</td>
         `
-        app.list(table);
+        })
 
         
         
@@ -76,17 +87,38 @@ const search = document.getElementById("searchBtn")
 search.addEventListener("click", (e) =>{
     e.preventDefault()
     const username = document.getElementById("username").value;
-    for(let i = 0;  i < users.length; i++){
-        if([i] == username){
-            return i;
-        }else{
-            return null;
-        }
+    const encontrado = document.getElementById("searchList")
+    
+    encontrado.innerHTML = "";
+
+    let usuario = app.search(username);
+    if(usuario){ 
+        nameInput.value = usuario.name
+        usernameInput.value =  usuario.username
+        ageInput.value = usuario.age
+        websiteInput.value = usuario.website
+        emailInput.value = usuario.email
+
+        nameInput.disabled = true;
+        usernameInput.disabled = true;
+        ageInput.disabled = true;
+        websiteInput.disabled = true;
+        emailInput.disabled = true;
+        
+
+    }else{
+        encontrado.innerHTML += "Didnt found;("
 
     }
+
+
+
+    
     
 
 })
+
+
 
 
 
