@@ -1,0 +1,29 @@
+input{
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=submit]{
+    background-color: #aa0404;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+
+h1{
+    color: rgb(39, 77, 126);
+}
+
+p{
+    font-size: large;
+    
+}
+
